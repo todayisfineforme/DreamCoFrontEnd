@@ -1,0 +1,23 @@
+{
+  "name": "DreamCoFrontEnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamCo2020/DreamCoFrontEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DreamCo2020/DreamCoFrontEnd/issues"
+  },
+  "homepage": "https://github.com/DreamCo2020/DreamCoFrontEnd#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
