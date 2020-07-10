@@ -19,5 +19,9 @@
   "homepage": "https://github.com/DreamCo2020/DreamCoFrontEnd#readme",
   "devDependencies": {
     "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "@petfinder/petfinder-js": "^1.0.6",
+    "express": "^4.17.1"
   }
 }
