@@ -1,4 +1,43 @@
-* { 
+/* * { 
     outline: 1px solid red;
     outline-offset: -1px;
-  }
+} */
+/* 
+body {
+    background-color: #e08890;
+} */
+
+.userLocation {
+    text-align: center;
+}
+.userEmail {
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    margin: 20px auto;
+    table-layout: auto;
+    border: 1px solid black;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    font-size: large;
+
+}
+
+th {
+    border: 1px solid black;
+    font-size: x-large;
+    font-weight: bold;
+    height: 50px;
+    text-align: center;
+}
+
+/* .listImg {
+    max-width: 100%;
+    max-height: 25%;
+    display: block;
+} */
