@@ -1,28 +1,28 @@
-$(document).ready(function(){
+$(document).ready(function () {
     const key = 'BiHVnHmBdjWPwM1U5tq9wNOta5bntAP3VHKWNp6GmzITbQh6jQ';
     const secret = 'iUOnf7VZ0Ijeyh5eU8Trqk9iTqBpjRGSYs1JmWD7';
-    
-    var pf = new petfinder.Client({apiKey: key, secret: secret});
+
+    const pf = new petfinder.Client({ apiKey: key, secret: secret });
 
     pf.animal.search()
-        .then(function (response) {
+        .then((response) => {
             console.log(response);
             let x = 0;
             let y = 0;
             let z = 0;
             let cssClass = "." + z;
 
-            while(x < response.data.animals.length){
+            while (x < response.data.animals.length) {
                 if (response.data.animals[x].primary_photo_cropped === null) { x++; continue; };
                 console.log(y);
-                if(y === 0){
+                if (y === 0) {
                     $(".output").append(`<div class="row ${z}">`);
                     y++;
                     z++;
-                    cssClass = "." + (z-1);
-                } else if(y === 2){
+                    cssClass = "." + (z - 1);
+                } else if (y === 2) {
                     y = 0;
-                } else{
+                } else {
                     y++;
                 }
                 $(cssClass).append(`<div class="col-md-4">
@@ -46,5 +46,5 @@ $(document).ready(function(){
         .catch(function (error) {
             console.log(error);
         });
-    
-    })
+
+})
