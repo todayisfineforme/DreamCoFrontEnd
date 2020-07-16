@@ -1,4 +1,4 @@
-$(document).ready(() =>{
+$(document).ready(() => {
 
     $('.login').on('click', () => {
         writeLogin();
@@ -16,11 +16,52 @@ $(document).ready(() =>{
         writeSignUp();
     });
 
-    // $('.output').delegate('.SubmitLogin', 'click', () => {
-    // });
+    $('.output').delegate('.SubmitLogin', 'click', () => {
 
-    // $('.output').delegate('.submitSignup', 'click', () => {
-    // });
+        function signin() {
+            let userName = $('input[name="userName"]').val();
+            let password = $('input[name="password"]').val();
+
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:3000/user/signin",
+                data: {
+                    userName: `${userName}`,
+                    password: `${password}`
+                }
+            }).done((response) => {
+                if (response.success)
+                    console.log(response.success);
+                //go to next page
+                else
+                    console.log(response.error);
+            });
+        };
+    });
+
+    $('.output').delegate('.submitSignup', 'click', () => {
+
+        function signup() {
+            let userName = $('input[name="userName"]').val();
+            let password = $('input[name="password"]').val();
+            let email = $('input[name="email"]').val();
+
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:3000/user/signup",
+                data: {
+                    userName: `${userName}`,
+                    email: `${email}`,
+                    password: `${password}`
+                }
+            }).done((response) => {
+                if (response.success)
+                    writeLogin();
+                else
+                    console.log(response.error);
+            });
+        };;
+    });
 
     writeLogin = () => {
         console.log("button clicked")
@@ -29,7 +70,7 @@ $(document).ready(() =>{
             <div class="row justify-content-center">
                 <div class="col-md-6 col-md-offset-3">
                     <h2>Login</h2>
-                    <form  method="POST" action="/user/signin" class="login">
+                    <form class="login">
                     <div class="form-group">
                         <label for="name">User Name</label>
                         <input type="text" class="form-control" name="Username" placeholder="username">
@@ -42,10 +83,11 @@ $(document).ready(() =>{
                     </form>
                     <br>
                     <p>Or</p>
-                    <button type="button" class="btn btn-secondary btn-lg signup">Signup</button>
+                    <button type="button" class="btn btn-secondary btn-lg submitSignin">Signup</button>
                 </div>
             </div>
         `);
+        $('.submitSignin').click(signup);
     }
 
     writeSignUp = () => {
@@ -55,7 +97,7 @@ $(document).ready(() =>{
             <div class="row justify-content-center">
                 <div class="col-md-6 col-md-offset-3">
                     <h2>Sign Up Form</h2>
-                    <form method="Post" action="/user/signup" class="signup">
+                    <form class="signupform">
                         <div class="form-group">
                             <label for="name">User Name</label>
                             <input type="text" class="form-control" name="userName" placeholder="userName">
@@ -72,7 +114,7 @@ $(document).ready(() =>{
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span> <span class="msg"></span>
                     </div>
-                    <button type="submit" class="btn btn-secondary btn-lg submitSignup">Sign Up</button>
+                    <button type="button" class="btn btn-secondary btn-lg submitSignup">Sign Up</button>
                     </form>
                     <br>
                     <p>Or</p>
@@ -80,7 +122,6 @@ $(document).ready(() =>{
                 </div>
             </div>
         `);
+        $('.submitSignup').click(signup);
     }
-
-
 });
