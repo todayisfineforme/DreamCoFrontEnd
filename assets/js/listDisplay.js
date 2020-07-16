@@ -35,7 +35,7 @@ $(document).ready(function () {
                         <p class="card-text">${response.data.animals[x].breeds.primary}</p>
                         <p class="card-text">${response.data.animals[x].colors.primary}</p>
                         <p class="card-text">${response.data.animals[x].description}</p>
-                        <a href="#" class="btn btn-primary">Add to Wishlist</a>
+                        <a data-id="${response.data.animals[x].id}" data-photo="${response.data.animals[x].primary_photo_cropped.small}" data-name="${response.data.animals[x].name}" data-profile="${response.data.animals[x].url}" class="btn btn-primary">Add to Wishlist</a>
                     </div>
                 </div>
                 </div>`);
@@ -47,4 +47,15 @@ $(document).ready(function () {
             console.log(error);
         });
 
+    $(document).on("click", ".btn", function() {
+        console.log($(this));
+        $ID = $(this).attr('data-id');
+        $photo = $(this).attr('data-photo');
+        $name = $(this).attr('data-name');
+        $profile = $(this).attr('data-profile')
+        console.log("Selected ID:" + $ID);
+        console.log("Selected photo:" + $photo);
+        console.log("Selected name:" + $name);
+        console.log("Selected name:" + $profile);
+    });
 })
