@@ -128,7 +128,6 @@ $(document).ready(function () {
                 console.log(response);
             });
             return false;
-
         });
 
         getLocation();
