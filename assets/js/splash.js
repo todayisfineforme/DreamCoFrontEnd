@@ -16,51 +16,49 @@ $(document).ready(() => {
         writeSignUp();
     });
 
-    $('.output').delegate('.SubmitLogin', 'click', () => {
+    $('.output').delegate('.submitLogin', 'click', () => {
 
-        function signin() {
-            let userName = $('input[name="userName"]').val();
-            let password = $('input[name="password"]').val();
+        let userName = $('input[name="userName"]').val();
+        let password = $('input[name="password"]').val();
 
-            $.ajax({
-                method: "POST",
-                url: "http://127.0.0.1:3000/user/signin",
-                data: {
-                    userName: `${userName}`,
-                    password: `${password}`
-                }
-            }).done((response) => {
-                if (response.success)
-                    console.log(response.success);
-                //go to next page
-                else
-                    console.log(response.error);
-            });
-        };
+        $.ajax({
+            method: "POST",
+            url: "https://enigmatic-reaches-67118.herokuapp.com/user/signin",
+            data: {
+                userName: `${userName}`,
+                password: `${password}`
+            }
+        }).done((response) => {
+            if (response.success) {
+                console.log(response.success);
+                sessionStorage.setItem('userid', response.userid);
+                window.location ='./assets/html/listDisplay.html';
+            }
+            else
+                console.log(response.error);
+        });
     });
 
     $('.output').delegate('.submitSignup', 'click', () => {
 
-        function signup() {
-            let userName = $('input[name="userName"]').val();
-            let password = $('input[name="password"]').val();
-            let email = $('input[name="email"]').val();
+        let userName = $('input[name="userName"]').val();
+        let password = $('input[name="password"]').val();
+        let email = $('input[name="email"]').val();
 
-            $.ajax({
-                method: "POST",
-                url: "http://127.0.0.1:3000/user/signup",
-                data: {
-                    userName: `${userName}`,
-                    email: `${email}`,
-                    password: `${password}`
-                }
-            }).done((response) => {
-                if (response.success)
-                    writeLogin();
-                else
-                    console.log(response.error);
-            });
-        };;
+        $.ajax({
+            method: "POST",
+            url: "https://enigmatic-reaches-67118.herokuapp.com/user/signup",
+            data: {
+                userName: `${userName}`,
+                email: `${email}`,
+                password: `${password}`
+            }
+        }).done((response) => {
+            if (response.success)
+                writeLogin();
+            else
+                console.log(response.error);
+        });
     });
 
     writeLogin = () => {
@@ -70,16 +68,16 @@ $(document).ready(() => {
             <div class="row justify-content-center">
                 <div class="col-md-6 col-md-offset-3">
                     <h2>Login</h2>
-                    <form class="login">
+                    <form class="loginform">
                     <div class="form-group">
                         <label for="name">User Name</label>
-                        <input type="text" class="form-control" name="Username" placeholder="username">
+                        <input type="text" class="form-control" name="userName" placeholder="username">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-secondary btn-lg submitLogin">Login</button>
+                    <button type="button" class="btn btn-secondary btn-lg submitLogin">Login</button>
                     </form>
                     <br>
                     <p>Or</p>
@@ -87,7 +85,6 @@ $(document).ready(() => {
                 </div>
             </div>
         `);
-        $('.submitSignin').click(signup);
     }
 
     writeSignUp = () => {
@@ -122,6 +119,5 @@ $(document).ready(() => {
                 </div>
             </div>
         `);
-        $('.submitSignup').click(signup);
     }
 });
