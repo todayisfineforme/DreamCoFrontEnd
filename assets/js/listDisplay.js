@@ -13,25 +13,24 @@ $(document).ready(function () {
                 function success(pos) {
                     lat = pos.coords.latitude;
                     long = pos.coords.longitude;
-                    zip = "60657";
-                    getPets(zip);
+                    getPets(lat, long);
                     console.log("success")
                 }
 
                 function error(err) {
                     lat = 41.8781;
                     long = -87.6298;
-                    zip = "60657"
-                    getPets(zip);
+                    getPets(lat, long);
                     console.log(err);
                     console.warn(`ERROR(${err.code}): ${err.message}`);
                   }
                   navigator.geolocation.getCurrentPosition(success, error)
     }
 
-    function getPets(zip){
+    function getPets(lat, long){
         pf.animal.search({
-            location: zip,
+            latitude: lat,
+            longitude: long,
             limit: 20
         })
             .then(function (response) {
@@ -109,23 +108,27 @@ $(document).ready(function () {
         console.log("Selected name:" + $name);
         console.log("Selected profile:" + $profile);
 
-        const queryURL = "y0nkiij6humroewt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/animals/add";
+        const queryURL = "http://localhost:5000/animals/add";
 
         $.ajax({
             url: queryURL,
             method: "POST",
-            body: {
-                    "petName": "Enzo",
-                    "photoURL": $photo,
-                    "profileUrl": $profile,
-                    "note": "note 2",
-                    "petId": $ID,
-                    "userId": 1
-            }
+            crossDomain: true,
+            data: {
+                petName: "Enzo",
+                note: "note 2",
+                photoUrl: $photo,
+                profileUrl: $profile,
+                petId: $ID,
+                userid: 1
+    }
         }).then(function (response) {
             console.log(response);
         });
+        return false;
+
     });
 
     getLocation();
+
 })
