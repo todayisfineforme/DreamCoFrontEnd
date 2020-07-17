@@ -57,3 +57,39 @@ textarea {
 .nav-item {
     font-size: large;
 }
+
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .petCard{
+    margin-bottom: 50px;
+  }
+  
+  .cardRow{
+    margin-bottom: 50px;
+    min-height: 100%;
+  }
+  
+  .card{
+    width: 90%;
+  }
+  
+    .petImg{
+      height: 250px;
+    }
+  
+    #petResult{
+      height: 50%;
+    }
+  
+    #name{
+      text-align: center;
+    }
+  
+   .wishBtnDiv{
+     position: absolute;
+     bottom: 10px;
+     left: 32%;
+   }
