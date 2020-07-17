@@ -5,7 +5,7 @@ function signup() {
 
     $.ajax({
         method: "POST",
-        url: "http://127.0.0.1:3000/user/signup","https://enigmatic-reaches-67118.herokuapp.com/user/signup",
+        url: "http://127.0.0.1:3000/user/signup",//"https://enigmatic-reaches-67118.herokuapp.com/user/signup",
         data: {
             userName: `${userName}`,
             email: `${email}`,
@@ -25,7 +25,7 @@ function signin() {
 
     $.ajax({
         method: "POST",
-        url: "http://127.0.0.1:3000/user/signin","https://enigmatic-reaches-67118.herokuapp.com/user/signin",
+        url: "http://127.0.0.1:3000/user/signin",//"https://enigmatic-reaches-67118.herokuapp.com/user/signin"
         data: {
             userName: `${userName}`,
             password: `${password}`
@@ -33,7 +33,6 @@ function signin() {
     }).done((response) => {
         if (response.success)
           console.log(response.success); 
-          //go to next page
         else
             console.log(response.error);
     });
