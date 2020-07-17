@@ -108,7 +108,7 @@ $(document).ready(function () {
         console.log("Selected name:" + $name);
         console.log("Selected profile:" + $profile);
 
-        const queryURL = "http://localhost:5000/animals/add";
+        const queryURL = "https://enigmatic-reaches-67118.herokuapp.com/animals/add";
 
         $.ajax({
             url: queryURL,
