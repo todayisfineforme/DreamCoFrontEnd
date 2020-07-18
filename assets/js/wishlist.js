@@ -78,3 +78,10 @@ function deleteWishListItem() {
         console.log(response);
     });
 }
+
+$(document).on("click", ".viewPet", function () {
+    console.log($(this));
+    $profile = $(this).attr('data-url');
+    console.log($profile);
+    window.open(`${$profile}`, '_blank');
+});
