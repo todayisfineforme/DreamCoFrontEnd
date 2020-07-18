@@ -81,7 +81,7 @@ $(document).ready(() => {
                     </form>
                     <br>
                     <p>Or</p>
-                    <button type="button" class="btn btn-secondary btn-lg submitSignin">Signup</button>
+                    <button type="button" class="btn btn-secondary btn-lg signup">Signup</button>
                 </div>
             </div>
         `);

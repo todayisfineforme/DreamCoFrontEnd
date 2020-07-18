@@ -88,7 +88,7 @@ $(document).ready(function () {
                         </div>
                     </div>
                     </div>
-                        <div class="row wishBtnDiv"><button data-id="${response.data.animals[resNum].id}" data-photo="${response.data.animals[resNum].primary_photo_cropped.small}" data-name="${response.data.animals[resNum].name}" data-profile="${response.data.animals[resNum].url}" href="#" class="btn btn-primary wishBtn">Add to Wishlist</button></div>
+                        <div class="row wishBtnDiv"><button data-id="${response.data.animals[resNum].id}" data-photo="${response.data.animals[resNum].primary_photo_cropped.small}" data-name="${response.data.animals[resNum].name}" data-profile="${response.data.animals[resNum].url}" href="#" class="btn btn-secondary wishBtn">Add to Wishlist</button></div>
                     </div>`);
                         resNum++;
                     }
